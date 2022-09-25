@@ -5,7 +5,10 @@ const app = express();
 
 app.get('/', async(req, res) => {
 	const response = await bot();
-	res.send(response);
+	response.write("<img src = "+response+">");
+	response.send();
+	// res.sendFile(__dirname + response);
+	// res.send(response);
 	// res.send('Done');
 })
 

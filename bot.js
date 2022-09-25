@@ -50,7 +50,7 @@ const bot = async () => {
 	await element.screenshot({path: './imgg.png'})
 	// console.log("Take screenshot")
 	await browser.close()
-	return 'Done'
+	return './imgg.png'
 };
 
 module.exports = bot;
