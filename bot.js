@@ -1,7 +1,7 @@
-const puppeteer = require('puppeteer')
+const puppeteer = require('puppeteer');
 
 const bot = async () => {
-	const browser = puppeteer.launch({
+	const browser = await puppeteer.launch({
 		// executablePath: '/C:/Program Files/Google/Chrome/Application/chrome.exe',
 		headless: true, 
 		// slowMo: 500, 
@@ -39,18 +39,18 @@ const bot = async () => {
 	await page.goto('https://www.tradingview.com/chart/', {
 		waitUntil: 'networkidle2'
 	})
-	console.log("Open trading view chart")
+	// console.log("Open trading view chart")
 	await page.waitForSelector('body > div.js-rootresizer__contents.layout-with-border-radius > div.layout__area--right > div > div.widgetbar-pages > div.widgetbar-pagescontent > div.widgetbar-page.active > div.widget-_I5Xtw7b.widgetbar-widget.widgetbar-widget-watchlist > div.widgetbar-widgetbody > div > div.content-kWDrsMbN > div > div > div.listContainer-zol_jClG > div > div:nth-child(3) > div')
-	console.log("wait until the selectors are loaded")
+	// console.log("wait until the selectors are loaded")
 	await page.setDefaultNavigationTimeout(0);
 	await page.click('body > div.js-rootresizer__contents.layout-with-border-radius > div.layout__area--right > div > div.widgetbar-pages > div.widgetbar-pagescontent > div.widgetbar-page.active > div.widget-_I5Xtw7b.widgetbar-widget.widgetbar-widget-watchlist > div.widgetbar-widgetbody > div > div.content-kWDrsMbN > div > div > div.listContainer-zol_jClG > div > div:nth-child(3) > div', {clickCount: 1})
-	console.log("Click data SPX")
+	// console.log("Click data SPX")
 	await page.waitForSelector('.layout__area--center')
 	const element = await page.$('.layout__area--center')
 	await element.screenshot({path: './imgg.png'})
-	console.log("Take screenshot")
+	// console.log("Take screenshot")
 	await browser.close()
 	return 'Done'
-}
+};
 
 module.exports = bot;
