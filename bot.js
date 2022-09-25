@@ -47,7 +47,7 @@ const bot = async () => {
 	console.log("Click data SPX")
 	await page.waitForSelector('.layout__area--center')
 	const element = await page.$('.layout__area--center')
-	await element.screenshot({path: './image/imgg.png'})
+	await element.screenshot({path: './imgg.png'})
 	console.log("Take screenshot")
 	await browser.close()
 	return 'Done'
